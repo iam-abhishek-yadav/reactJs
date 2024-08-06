@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const RestaurantList = ({
 	restaurants,
@@ -13,10 +14,11 @@ const RestaurantList = ({
 						<SkeletonCard key={index} />
 				  ))
 				: restaurants.map((restaurant) => (
-						<RestaurantCard
-							key={restaurant.info.id}
-							restaurantInfo={restaurant.info}
-						/>
+						<Link
+							to={`/restaurant/${restaurant.info.id}`}
+							key={restaurant.info.id}>
+							<RestaurantCard restaurantInfo={restaurant.info} />
+						</Link>
 				  ))}
 		</div>
 	);

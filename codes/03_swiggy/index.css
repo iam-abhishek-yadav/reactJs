@@ -1,3 +1,10 @@
+body,
+html {
+	margin: 0;
+	padding: 0;
+	overflow-x: hidden;
+}
+
 .header {
 	display: flex;
 	justify-content: space-between;
@@ -31,6 +38,27 @@
 	margin: 6px 5px;
 }
 
+.navItems a {
+	text-decoration: none;
+	color: #333;
+	font-size: 16px;
+	font-weight: 500;
+	padding: 8px 12px;
+	border-radius: 4px;
+	transition: background-color 0.3s, color 0.3s;
+}
+
+.navItems a:hover,
+.navItems a:focus {
+	background-color: #ff5722;
+	color: #fff;
+	outline: none;
+}
+
+.navItems a:active {
+	background-color: #e64a19;
+}
+
 .auth-btn {
 	background-color: #ff5722;
 	color: #fff;
@@ -38,8 +66,8 @@
 	padding: 8px 16px;
 	border-radius: 4px;
 	cursor: pointer;
-	margin-top: -6px;
 	font-size: 16px;
+	transition: background-color 0.3s;
 }
 
 .auth-btn:hover {
@@ -47,6 +75,7 @@
 }
 
 .body {
+	margin: 0;
 	padding: 20px;
 	background-color: #f9f9f9;
 }
@@ -140,6 +169,20 @@
 	justify-content: space-around;
 }
 
+.res-container a {
+	text-decoration: none;
+	color: inherit;
+	display: block;
+}
+
+.res-container a:hover {
+	text-decoration: none;
+	color: inherit;
+}
+.res-card {
+	text-align: center;
+}
+
 .res-card {
 	padding: 10px;
 	width: 200px;
@@ -150,6 +193,7 @@
 	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 	transition: box-shadow 0.3s ease, background-color 0.3s ease, border 0.3s ease;
 	border-radius: 5px;
+	background-color: #fff;
 }
 
 .res-card:hover {
@@ -233,4 +277,190 @@
 .skeleton-card .skeleton-logo,
 .skeleton-card .skeleton-text {
 	animation: pulse 1.5s infinite ease-in-out;
+}
+
+.error-container {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	height: 96vh;
+	margin: 0;
+	padding: 20px;
+	background-color: #f8d7da;
+	color: #721c24;
+	font-family: Arial, sans-serif;
+	overflow: hidden;
+}
+
+.error-container h1 {
+	font-size: 2rem;
+	margin-bottom: 10px;
+}
+
+.error-container p {
+	font-size: 1.2rem;
+	margin-bottom: 20px;
+}
+
+.error-details {
+	background-color: #f5c6cb;
+	border: 1px solid #f1b0b7;
+	border-radius: 5px;
+	padding: 15px;
+	width: 100%;
+	max-width: 600px;
+	box-sizing: border-box;
+	overflow-y: auto;
+	max-height: calc(100vh - 40px);
+}
+
+.error-details h2 {
+	font-size: 1.5rem;
+	margin-bottom: 10px;
+}
+
+.error-details p {
+	font-size: 1rem;
+	margin-bottom: 10px;
+}
+
+.error-details details {
+	margin-top: 10px;
+}
+
+.error-details summary {
+	font-weight: bold;
+	cursor: pointer;
+}
+
+.error-details pre {
+	background-color: #f8d7da;
+	border: 1px solid #f5c6cb;
+	border-radius: 5px;
+	padding: 10px;
+	white-space: pre-wrap;
+	margin: 0;
+}
+
+.restaurant-menu-container {
+	max-width: 1200px;
+	margin: 20px auto;
+	padding: 20px;
+	background-color: #fff;
+	border-radius: 8px;
+	box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.restaurant-menu-container h1 {
+	font-size: 2.5rem;
+	color: #333;
+	margin: 0;
+}
+
+.restaurant-menu-container p {
+	font-size: 1rem;
+	color: #555;
+	margin: 5px 0;
+}
+
+.restaurant-menu-container h2 {
+	font-size: 2rem;
+	margin: 20px 0 10px;
+	color: #ff5722;
+}
+
+.menu-item {
+	border-bottom: 1px solid #ddd;
+	padding: 15px 0;
+}
+
+.menu-item:last-child {
+	border-bottom: none;
+}
+
+.menu-item h3 {
+	font-size: 1.5rem;
+	color: #333;
+	margin: 0;
+}
+
+.menu-item p {
+	margin: 5px 0;
+	color: #666;
+}
+
+.menu-item .price {
+	font-weight: bold;
+	color: #ff5722;
+}
+
+@media (max-width: 768px) {
+	.restaurant-menu-container {
+		padding: 15px;
+	}
+
+	.restaurant-menu-container h1 {
+		font-size: 2rem;
+	}
+
+	.restaurant-menu-container h2 {
+		font-size: 1.5rem;
+	}
+
+	.menu-item h3 {
+		font-size: 1.2rem;
+	}
+
+	.menu-item p {
+		font-size: 0.9rem;
+	}
+}
+
+.shimmer-wrapper {
+	position: relative;
+	width: 100%;
+	height: 100%;
+	overflow: hidden;
+}
+
+.shimmer {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: linear-gradient(to right, #f0f0f0 8%, #e0e0e0 18%, #f0f0f0 33%);
+	background-size: 800px 104px;
+	animation: shimmer 1.5s infinite;
+}
+
+@keyframes shimmer {
+	0% {
+		background-position: -800px 0;
+	}
+	100% {
+		background-position: 800px 0;
+	}
+}
+
+.shimmer-item {
+	border-radius: 4px;
+	background-color: #e0e0e0;
+	margin-bottom: 10px;
+}
+
+.shimmer-item.large {
+	height: 200px;
+	width: 100%;
+}
+
+.shimmer-item.medium {
+	height: 20px;
+	width: 60%;
+}
+
+.shimmer-item.small {
+	height: 20px;
+	width: 80%;
 }

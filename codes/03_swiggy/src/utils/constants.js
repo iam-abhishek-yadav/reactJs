@@ -7,4 +7,7 @@ const CDN_URL =
 const API_URL =
 	'https://www.swiggy.com/dapi/restaurants/list/v5?lat=12.9351929&lng=77.62448069999999&page_type=DESKTOP_WEB_LISTING';
 
-export { LOGO_URL, CDN_URL, API_URL };
+const RESTAURANT_URL =
+	'https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=12.9352403&lng=77.624532&restaurantId=';
+
+export { LOGO_URL, CDN_URL, API_URL, RESTAURANT_URL };
