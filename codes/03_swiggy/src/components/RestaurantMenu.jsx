@@ -8,12 +8,12 @@ const RestaurantMenu = () => {
 
 	if (loading) {
 		return (
-			<div className='shimmer-wrapper'>
-				<div className='shimmer'>
-					<div className='shimmer-item large'></div>
-					<div className='shimmer-item medium'></div>
-					<div className='shimmer-item small'></div>
-					<div className='shimmer-item small'></div>
+			<div className='relative w-full h-full overflow-hidden'>
+				<div className='absolute top-0 left-0 w-full h-full bg-gradient-to-r from-gray-100 via-gray-200 to-gray-100 bg-[length:800px_104px] animate-shimmer'>
+					<div className='rounded-md bg-gray-300 mb-2.5 large'></div>
+					<div className='rounded-md bg-gray-300 mb-2.5 medium'></div>
+					<div className='rounded-md bg-gray-300 mb-2.5 small'></div>
+					<div className='rounded-md bg-gray-300 mb-2.5 small'></div>
 				</div>
 			</div>
 		);
@@ -26,20 +26,22 @@ const RestaurantMenu = () => {
 	const { name, cuisines, costForTwoMessage, avgRating } = resInfo;
 
 	return (
-		<div className='restaurant-menu-container'>
-			<h1>{name}</h1>
-			<p>Cuisines: {cuisines?.join(', ')}</p>
-			<p>{costForTwoMessage}</p>
-			<p>Rating: {avgRating}</p>
-			<h2>Menu</h2>
+		<div className='max-w-6xl mx-auto my-5 p-5 bg-white rounded-lg shadow-md'>
+			<h1 className='text-3xl text-gray-800'>{name}</h1>
+			<p className='text-gray-600 my-1'>Cuisines: {cuisines?.join(', ')}</p>
+			<p className='text-gray-600 my-1'>{costForTwoMessage}</p>
+			<p className='text-gray-600 my-1'>Rating: {avgRating}</p>
+			<h2 className='text-2xl text-orange-600 my-5'>Menu</h2>
 			{menu.length > 0 ? (
 				menu.map((item) => (
 					<div
-						className='menu-item'
+						className='border-b border-gray-300 py-4'
 						key={item?.card?.info?.id}>
-						<h3>{item?.card?.info?.name}</h3>
-						<p>{item?.card?.info?.description}</p>
-						<p className='price'>Rs. {item?.card?.info?.finalPrice / 100}</p>
+						<h3 className='text-xl text-gray-800'>{item?.card?.info?.name}</h3>
+						<p className='text-gray-600'>{item?.card?.info?.description}</p>
+						<p className='text-orange-600 font-bold'>
+							Rs. {item?.card?.info?.finalPrice / 100}
+						</p>
 					</div>
 				))
 			) : (

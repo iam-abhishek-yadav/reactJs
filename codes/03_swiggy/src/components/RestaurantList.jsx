@@ -8,7 +8,7 @@ const RestaurantList = ({
 	RestaurantCard,
 }) => {
 	return (
-		<div className='res-container'>
+		<div className='h-full flex flex-wrap gap-5 justify-around'>
 			{loading
 				? Array.from({ length: 8 }).map((_, index) => (
 						<SkeletonCard key={index} />
@@ -16,7 +16,8 @@ const RestaurantList = ({
 				: restaurants.map((restaurant) => (
 						<Link
 							to={`/restaurant/${restaurant.info.id}`}
-							key={restaurant.info.id}>
+							key={restaurant.info.id}
+							className='block text-inherit no-underline hover:text-inherit'>
 							<RestaurantCard restaurantInfo={restaurant.info} />
 						</Link>
 				  ))}

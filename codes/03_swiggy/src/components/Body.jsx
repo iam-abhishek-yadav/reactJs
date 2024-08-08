@@ -62,8 +62,8 @@ const Body = () => {
 	}, [allRestaurants, searchQuery, selectedCost, selectedDeliveryTime]);
 
 	return (
-		<div className='body'>
-			<div className='top-bar'>
+		<div className='bg-white p-5'>
+			<div className='flex items-center gap-5 mb-5 flex-wrap'>
 				<SearchBar
 					searchQuery={searchQuery}
 					setSearchQuery={setSearchQuery}

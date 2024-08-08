@@ -1,17 +1,10 @@
-import React from 'react';
+import React, { Component } from 'react';
 import User from './User';
-import { Component } from 'react';
 
 class About extends Component {
-	constructor(props) {
-		super(props);
-	}
-
-	componentDidMount() {}
 	render() {
 		return (
-			<div>
-				<h1>About Us</h1>
+			<div className='w-full h-screen bg-white p-6  mx-auto rounded-lg shadow-md'>
 				<User />
 			</div>
 		);

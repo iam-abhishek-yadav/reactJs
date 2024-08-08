@@ -8,6 +8,7 @@ import Error from './Error';
 import RestaurantMenu from './RestaurantMenu';
 import User from './User';
 import Grocery from './Grocery';
+import Cart from './Cart';
 
 export {
 	Header,
@@ -20,4 +21,5 @@ export {
 	RestaurantMenu,
 	User,
 	Grocery,
+	Cart,
 };
