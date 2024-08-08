@@ -7,6 +7,7 @@ import Contact from './Contact';
 import Error from './Error';
 import RestaurantMenu from './RestaurantMenu';
 import User from './User';
+import Grocery from './Grocery';
 
 export {
 	Header,
@@ -18,4 +19,5 @@ export {
 	Error,
 	RestaurantMenu,
 	User,
+	Grocery,
 };

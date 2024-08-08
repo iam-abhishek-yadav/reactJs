@@ -1,40 +1,28 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState, useCallback, useEffect } from 'react';
 import { RestaurantCard, SkeletonCard } from './index';
-import { API_URL } from '../utils/constants';
 import SearchBar from './SearchBar';
 import Filters from './Filters';
 import RestaurantList from './RestaurantList';
+import useFetchRestaurants from '../utils/useFetchRestaurants';
 
 const Body = () => {
-	const [restaurants, setRestaurants] = useState([]);
-	const [allRestaurants, setAllRestaurants] = useState([]);
+	const {
+		restaurants: fetchedRestaurants,
+		allRestaurants,
+		loading,
+	} = useFetchRestaurants();
+
+	const [restaurants, setRestaurants] = useState(fetchedRestaurants);
 	const [isTopRated, setIsTopRated] = useState(false);
 	const [searchQuery, setSearchQuery] = useState('');
 	const [selectedCost, setSelectedCost] = useState('');
 	const [selectedDeliveryTime, setSelectedDeliveryTime] = useState('');
-	const [loading, setLoading] = useState(true);
 
 	useEffect(() => {
-		fetchData();
-	}, []);
+		setRestaurants(fetchedRestaurants);
+	}, [fetchedRestaurants]);
 
-	const fetchData = async () => {
-		try {
-			const response = await fetch(API_URL);
-			const data = await response.json();
-			const fetchedRestaurants =
-				data?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle
-					?.restaurants || [];
-			setRestaurants(fetchedRestaurants);
-			setAllRestaurants(fetchedRestaurants);
-		} catch (error) {
-			console.error('Error fetching data:', error);
-		} finally {
-			setLoading(false);
-		}
-	};
-
-	const handleClick = () => {
+	const handleClick = useCallback(() => {
 		if (isTopRated) {
 			setRestaurants(allRestaurants);
 			setIsTopRated(false);
@@ -48,9 +36,9 @@ const Body = () => {
 			setRestaurants(topRated);
 			setIsTopRated(true);
 		}
-	};
+	}, [allRestaurants, isTopRated, restaurants]);
 
-	const handleSearch = () => {
+	const handleSearch = useCallback(() => {
 		let filtered = allRestaurants.filter((restaurant) =>
 			restaurant.info.name.toLowerCase().includes(searchQuery.toLowerCase())
 		);
@@ -71,7 +59,7 @@ const Body = () => {
 		}
 
 		setRestaurants(filtered);
-	};
+	}, [allRestaurants, searchQuery, selectedCost, selectedDeliveryTime]);
 
 	return (
 		<div className='body'>

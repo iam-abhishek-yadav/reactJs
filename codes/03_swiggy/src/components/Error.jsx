@@ -11,15 +11,15 @@ const Error = () => {
 				<div className='error-details'>
 					<h2>Error Details:</h2>
 					<p>
-						<strong>Message:</strong> {error.error.message}
+						<strong>Message:</strong> {error?.error?.message}
 					</p>
 					<p>
-						<strong>Status:</strong> {error.status} {error.statusText}
+						<strong>Status:</strong> {error?.status} {error?.statusText}
 					</p>
-					{error.stack && (
+					{error?.stack && (
 						<details>
 							<summary>Stack Trace</summary>
-							<pre>{error.stack}</pre>
+							<pre>{error?.stack}</pre>
 						</details>
 					)}
 				</div>

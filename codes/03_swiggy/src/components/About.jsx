@@ -12,11 +12,7 @@ class About extends Component {
 		return (
 			<div>
 				<h1>About Us</h1>
-				<User
-					name='Abhishek'
-					location='India'
-					contact='123456789'
-				/>
+				<User />
 			</div>
 		);
 	}
